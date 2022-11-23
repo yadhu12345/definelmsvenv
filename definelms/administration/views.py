@@ -116,7 +116,7 @@ def addcourse(request):
             form = courseForm()
         designation=course.objects.all()
         context = {'form': form, 'st': designation}
-        return render(request, 'course/course1.html', context)
+        return render(request, 'User_UI/index.html', context)
 
 
 @csrf_exempt

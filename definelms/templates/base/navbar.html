@@ -3,7 +3,7 @@
     <button class="navbar-toggler mobile-sidebar-toggler d-lg-none mr-auto" type="button">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="" href="#"><img src="{% static 'image/logo.jpg' %}" height="53" width="140"></a>
+    <a class="" href="#"><img src="{% static 'core/image/logo.jpg' %}" height="53" width="140"></a>
     <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -20,7 +20,7 @@
                 {% if request.user.userprofile %}
                 <img src="{{ request.user.userprofile.photo.url }}" class="img-avatar" alt="admin">
                 {% else %}
-                <img src="{% static 'src/img/man.png' %}" class="img-avatar" alt="Anynumos">
+                <img src="{% static 'core/src/img/man.png' %}" class="img-avatar" alt="Anynumos">
                 {% endif %}
             </a>
             <div class="dropdown-menu dropdown-menu-right">
