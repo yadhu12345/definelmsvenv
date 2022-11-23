@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'lmsmainapp',
     'rest_framework',
     'administration',
+    'User',
     'import_export',
 ]
 
