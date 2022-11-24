@@ -7,7 +7,9 @@
         let n = $('#examnameid').val();
         let e = $('#descriptionid').val();
         let c = $('#remarksid').val();
+    
         console.log(eid);
+    
         if(n == ""){
             console.log("Please Enter Name");
         }else if(e == ""){
@@ -18,7 +20,9 @@
             //console.log(n);
             //console.log(e);
             //console.log(c);
-            mydata = {exam_name:n, description:e, remarks:c};
+    
+            mydata = {exmid:eid, exam_name:n, description:e, remarks:c};
+    
             $.ajax({
                 url: "{% url 'saveex' %}",
                 method: "POST",
@@ -26,7 +30,7 @@
     
                 success:function(data){
                  // console.log(data.status)
-                 x = data.exam_data;
+                 x = data.student_data;
     
                  if(data.status == 'Data Saved'){
                      console.log('Data Submitted');
@@ -42,17 +46,23 @@
                      $('#exmid').val("");
                      $('form')[0].reset();
                  }
+    
                  if(data.status == 'Not Saved'){
                      console.log('Unable Submit Data');
                      $('#exmid').val("");
                  }
+    
+    
+    
                 }
             });
     }
+    
     })
+    
     // Delete
     $('#tbody').on("click", ".btn-del", function deleteex(){
-        var action = confirm("Are you sure you want to delete this desiganation?");
+        var action = confirm("Are you sure you want to delete this exam?");
         if (action != false) {
         console.log("Delete Button Cliked");
         let id = $(this).attr("data-eid");
@@ -111,5 +121,4 @@
         })
     })
     
-    
-    </script>
+</script>

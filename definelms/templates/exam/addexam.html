@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
   <div class="card">
-    <div class="card-header">Exam Register Form</div>
+    <div class="card-header">exam Register Form</div>
     <div class="card-body">
       <form action="" method="POST">
         {% csrf_token %}
@@ -17,15 +17,15 @@
 
   <div class="card">
       <div class="card-header">
-          <i class="fa fa-align-justify"></i>Exam List</div>
+          <i class="fa fa-align-justify"></i>exam List</div>
       <div class="card-body">
         <table class="table table-hover">
           <thead>
             <tr>
               <th scope="col">Id</th>
-              <th scope="col">Name</th>
-              <th scope="col">description</th>
-              <th scope="col">remarks</th>
+              <th scope="col">EXAM Name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Remarks</th>
               <th scope="col">Action</th>
           </tr>
           </thead>
@@ -54,4 +54,4 @@
   <script src="{% static 'core/js/jquery.js' %}"></script>
   <script src="{% static 'core/js/popper.js' %}"></script>
   {% include 'exam/ajax.html' %}
-{% endblock %}]
+{%endblock%}

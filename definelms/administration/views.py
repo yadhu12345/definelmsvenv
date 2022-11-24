@@ -116,7 +116,7 @@ def addcourse(request):
             form = courseForm()
         designation=course.objects.all()
         context = {'form': form, 'st': designation}
-        return render(request, 'User_UI/index.html', context)
+        return render(request, 'course/course.html', context)
 
 
 @csrf_exempt
@@ -192,8 +192,8 @@ def save_data_exam(request):
             s.save()
 
             exm = exam.objects.values()
-            exam_data = list(exm)
-            return JsonResponse({'status':'Data Saved', 'exam_data':exam_data})
+            student_data = list(exm)
+            return JsonResponse({'status':'Data Saved', 'student_data':student_data})
         else:
             return JsonResponse({'status':'Not Saved'})    
 
@@ -206,16 +206,17 @@ def delete_data_exam(request):
         s.delete()
         return JsonResponse({'status':1})
     else:
-        return JsonResponse({'status':0})    
+        return JsonResponse({'status':0})   
 
 
 @csrf_exempt
 def edit_data_exam(request):
     if request.method == 'POST':
         id = request.POST.get('eid')
-        examo = exam.objects.get(pk=id)
-        exam_data = {'id':examo.id, 'exam_name':examo.exam_name, 'description':examo.description, 'remarks':examo.remarks}
-        return JsonResponse(exam_data)
+        print('Student ID',id)
+        student = exam.objects.get(pk=id)
+        student_data = {'id':student.id, 'exam_name':student.exam_name, 'description':student.description, 'remarks':student.remarks}
+        return JsonResponse(student_data)
 
 
 #add topic
