@@ -9,4 +9,8 @@ def home(request):
     return render(request, 'User_UI/index.html',context)
 
 def vexam(request):
-    return render(request, 'User_UI/viewallexam.html')
+    exm = exam.objects.all()
+    context = {
+        'xm' : exm
+    }
+    return render(request, 'User_UI/viewallexam.html',context)

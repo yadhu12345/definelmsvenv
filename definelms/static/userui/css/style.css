@@ -434,6 +434,9 @@
     border-right: none;
 }
 
+
+
+
 @import url("https://fonts.googleapis.com/css?family=Mukta:700");
 * {
   box-sizing: border-box;
@@ -467,7 +470,7 @@ button.learn-more .circle {
   width: 3rem;
   height: 3rem;
   background: #06BBCC;
-  border-radius: 1.625rem;
+  border-radius: 0rem;
 }
 button.learn-more .circle .icon {
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
