@@ -53,7 +53,7 @@ class subject(models.Model):
     id           = models.AutoField(primary_key=True)
     subject_name = models.CharField(max_length=50,default="")
     description  = models.CharField(max_length=2000,default="")
-    image        = models.ImageField(max_length=150,default="")
+    image        = models.ImageField(upload_to='subject')
     user         = models.ForeignKey(login,on_delete=models.CASCADE)
 
     class Meta:

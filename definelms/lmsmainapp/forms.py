@@ -21,7 +21,7 @@ class courseForm(forms.ModelForm):
             'duration'   : forms.TextInput(attrs={'class':'form-control', 'id':'durationid'}),
             'exam'       : forms.Select(attrs={'class':'form-control', 'id':'examid'}),
             'image'      : forms.FileInput(attrs={'class':'form-control', 'id':'imageid'}),
-            'user'       : forms.TextInput(attrs={'class':'form-control', 'id':'userid','value':"{{request.session['username']}}"}),
+            'user'       : forms.Select(attrs={'class':'form-control', 'id':'userid'}),
         }
 
 class subjectForm(forms.ModelForm):

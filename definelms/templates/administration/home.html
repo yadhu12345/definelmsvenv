@@ -1,54 +1,161 @@
-{% extends 'base/base.html' %}
+{% extends 'administration/base/base.html' %}
 {% load static %}
+{% block title %} School Management System {% endblock %}
 {% block content %}
-  <div class="card">
-    <div class="card-header">Designation Register Form</div>
-    <div class="card-body">
-      <form action="" method="POST">
-        {% csrf_token %}
-        <input type="hidden" name="dsnid" id="dsnid" />
-        {{ form.as_p}}
+<marquee behavior="alternate" direction="right" scrollamount="5">Welcome To Learning Management System</marquee>
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-sm-6 col-lg-3">
+            <div class="card text-white bg-primary">
+                <div class="card-body pb-0">
+                    <div class="btn-group float-right">
+                        <button class="btn btn-transparent dropdown-toggle p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="icon-settings"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="#">Student List</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </div>
+                    <a href="{% url 'addcourse' %}" class="btn btn-transparent">
+                    <div class="text-value">{{ course }}</div>
+                    <div>Total Course</div></a>
+                </div>
+                <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
+                    <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                        <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                            <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                        </div>
+                        <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                            <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                        </div>
+                    </div>
+                    <canvas class="chart chartjs-render-monitor" id="card-chart1" height="70" width="319" style="display: block; width: 319px; height: 70px;"></canvas>
+                    <div id="card-chart1-tooltip" class="chartjs-tooltip top" style="opacity: 0; left: 278.558px; top: 123.889px;">
+                        <div class="tooltip-header">
+                            <div class="tooltip-header-item">June</div>
+                        </div>
+                        <div class="tooltip-body">
+                            <div class="tooltip-body-item"><span class="tooltip-body-item-color" style="background-color: rgb(0, 165, 224);"></span><span class="tooltip-body-item-label">My First dataset</span><span class="tooltip-body-item-value">55</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <input type="button" class="btn btn-success" value="Save" id="btnsave">
+        <div class="col-sm-6 col-lg-3">
+            <div class="card text-white bg-danger">
+                <div class="card-body pb-0">
+                    <div class="btn-group float-right">
+                        <button class="btn btn-transparent dropdown-toggle p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="icon-settings"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </div>
+                    <a href="{% url 'addsubject' %}" class="btn btn-transparent">
+                    <div class="text-value">{{ subject }}</div>
+                    <div>Total Subject</div>
+                    </a>
+                </div>
+                <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
+                    <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                        <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                            <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                        </div>
+                        <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                            <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                        </div>
+                    </div>
+                    <canvas class="chart chartjs-render-monitor" id="card-chart4" height="70" width="319" style="display: block; width: 319px; height: 70px;"></canvas>
+                    <div id="card-chart4-tooltip" class="chartjs-tooltip top bottom" style="opacity: 0; left: 265px; top: 134.2px;">
+                        <div class="tooltip-header">
+                            <div class="tooltip-header-item">January</div>
+                        </div>
+                        <div class="tooltip-body">
+                            <div class="tooltip-body-item"><span class="tooltip-body-item-color" style="background-color: rgba(230, 230, 230, 0.2);"></span><span class="tooltip-body-item-label">My First dataset</span><span class="tooltip-body-item-value">34</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-</form>
+        <div class="col-sm-6 col-lg-3">
+            <div class="card text-white bg-warning">
+                <div class="card-body pb-0">
+                    <div class="btn-group float-right">
+                        <button class="btn btn-transparent dropdown-toggle p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="icon-settings"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </div>
+                    <a href="{% url 'homeex' %}" class="btn btn-transparent">
+                    <div class="text-value">{{ exam }}</div>
+                    <div>Total Exam</div>
+                    </a>
+                </div>
+                <div class="chart-wrapper mt-3" style="height:70px;">
+                    <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                        <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                            <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                        </div>
+                        <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                            <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                        </div>
+                    </div>
+                    <canvas class="chart chartjs-render-monitor" id="card-chart3" height="70" width="351" style="display: block; width: 351px; height: 70px;"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+            <div class="card text-white bg-danger">
+                <div class="card-body pb-0">
+                    <div class="btn-group float-right">
+                        <button class="btn btn-transparent dropdown-toggle p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="icon-settings"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </div>
+                    <a href="{% url 'qbadd' %}" class="btn btn-transparent">
+                    <div class="text-value">{{ question }}</div>
+                    <div>Total Questions</div>
+                    </a>
+                </div>
+                <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
+                    <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                        <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                            <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                        </div>
+                        <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                            <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                        </div>
+                    </div>
+                    <canvas class="chart chartjs-render-monitor" id="card-chart4" height="70" width="319" style="display: block; width: 319px; height: 70px;"></canvas>
+                    <div id="card-chart4-tooltip" class="chartjs-tooltip top bottom" style="opacity: 0; left: 265px; top: 134.2px;">
+                        <div class="tooltip-header">
+                            <div class="tooltip-header-item">January</div>
+                        </div>
+                        <div class="tooltip-body">
+                            <div class="tooltip-body-item"><span class="tooltip-body-item-color" style="background-color: rgba(230, 230, 230, 0.2);"></span><span class="tooltip-body-item-label">My First dataset</span><span class="tooltip-body-item-value">34</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
-  </div>
-
-  <div class="card">
-      <div class="card-header">
-          <i class="fa fa-align-justify"></i>Designation List</div>
-      <div class="card-body">
-        <table class="table table-hover">
-          <thead>
-              <tr>
-                  <th scope="col">Id</th>
-                  <th scope="col">designation</th>
-                  <th scope="col">Action</th>
-              </tr>
-          </thead>
-          <tbody id="tbody">
-              {% for st in dsn %}
-              <tr>
-                  <td>{{st.id}}</td>
-                  <td>{{st.designation}}</td>
-                  <td>
-                      <input type="button" value="Edit" class="btn btn-warning btn-sm btn-edit" data-sid="{{st.id}}">
-                      <input type="button" onClick="deleteDes()" value="Delete" class="btn btn-danger btn-sm btn-del" data-sid="{{st.id}}">
-
-                  </td>
-
-              </tr>
-
-
-              {% endfor %}
-          </tbody>
-
-      </table>
-      </div>
-  </div>
-  
-  <script src="{% static 'core/js/jquery.js' %}"></script>
-  <script src="{% static 'core/js/popper.js' %}"></script>
-{% include 'administration/ajax.html' %}   
+</div>
 {% endblock %}

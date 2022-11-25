@@ -45,7 +45,7 @@ def home_page(request):
         'question':total_question,
         'uuname':uname
         }
-        return render(request, 'home.html', context)
+        return render(request, 'administration/home.html', context)
         
 def home(request):
     if 'username' not in request.session:
@@ -54,7 +54,7 @@ def home(request):
         form = DepartmentForm()
         dsn = Department.objects.all()
         context = {'form':form, 'dsn':dsn}
-        return render(request, 'administration/home.html', context)
+        return render(request, 'administration/homedes.html', context)
 
 
 @csrf_exempt
@@ -111,12 +111,12 @@ def addcourse(request):
                 form.save()
                 designation = course.objects.all()
                 context = {'form': form, 'st': designation}
-                return render(request, 'course/course1.html',context)
+                return render(request, 'administration/course/course1.html',context)
         else:
             form = courseForm()
         designation=course.objects.all()
         context = {'form': form, 'st': designation}
-        return render(request, 'course/course.html', context)
+        return render(request, 'administration/course/course1.html', context)
 
 
 @csrf_exempt
@@ -144,13 +144,13 @@ def addsubject(request):
                 designation = subject.objects.all()
                 us = login.objects.all
                 context = {'form': form, 'st': designation,'uu':us}
-                return render(request, 'subject/subject.html',context)
+                return render(request, 'administration/subject/subject.html',context)
         else:
             form = subjectForm()
         designation=subject.objects.all()
         us = login.objects.all
         context = {'form': form, 'st': designation,'uu':us}
-        return render(request, 'subject/subject.html', context)
+        return render(request, 'administration/subject/subject.html', context)
 
 @csrf_exempt
 def delete_data_subject(request):
@@ -173,7 +173,7 @@ def home_exam(request):
         form = examForm()
         exm = exam.objects.all()
         context = {'form':form, 'exm':exm}
-        return render(request, 'exam/addexam.html', context)
+        return render(request, 'administration/exam/addexam.html', context)
 
 
 @csrf_exempt
@@ -232,12 +232,12 @@ def addtopic(request):
                 form.save()
                 designation = topic.objects.all()
                 context = {'form': form, 'st': designation}
-                return render(request, 'topic/addtopic.html',context)
+                return render(request, 'administration/topic/addtopic.html',context)
         else:
             form = topicForm()
         designation=topic.objects.all()
         context = {'form': form, 'st': designation}
-        return render(request, 'topic/addtopic.html', context)
+        return render(request, 'administration/topic/addtopic.html', context)
 
 
 @csrf_exempt
@@ -273,12 +273,12 @@ def addsubtopic(request):
                 form.save()
                 designation = Subtopics.objects.all()
                 context = {'form': form, 'st': designation}
-                return render(request, 'subtopic/addsubtopic.html',context)
+                return render(request, 'administration/subtopic/addsubtopic.html',context)
         else:
             form = subtopicForm()
         designation=Subtopics.objects.all()
         context = {'form': form, 'st': designation}
-        return render(request, 'subtopic/addsubtopic.html', context)
+        return render(request, 'administration/subtopic/addsubtopic.html', context)
 
 
 @csrf_exempt
@@ -312,13 +312,13 @@ def add_question(request):
                 form.save()
                 designation = question_bank.objects.all()
                 context = {'form': form, 'st': designation}
-                return render(request, 'questionbank/questionbank.html',context)
+                return render(request, 'administration/questionbank/questionbank.html',context)
                 
         else:
             form = question_bankform()
         designation = question_bank.objects.all()
         context = {'form': form, 'st': designation}
-        return render(request, 'questionbank/questionbank.html', context)  
+        return render(request, 'administration/questionbank/questionbank.html', context)  
 
 @csrf_exempt
 def delete_data_question(request):
@@ -342,13 +342,13 @@ def addoptions(request):
                 form.save()
                 option = question_bank_options.objects.all()
                 context = {'form': form, 'opn': option}
-                return render(request, 'qsoptions/topic.html',context)
+                return render(request, 'administration/qsoptions/topic.html',context)
                 
         else:
             form = optionsForm()
         option = question_bank_options.objects.all()
         context = {'form': form, 'opn': option}
-        return render(request, 'qsoptions/topic.html',context)
+        return render(request, 'administration/qsoptions/topic.html',context)
 
 
 
@@ -386,12 +386,12 @@ def addexmaster(request):
                 form.save()
                 designation = exam_master.objects.all()
                 context = {'form': form, 'st': designation}
-                return render(request, 'exam_master/exammaster.html',context)
+                return render(request, 'administration/exam_master/exammaster.html',context)
         else:
             form = exammasterForm()
         designation=exam_master.objects.all()
         context = {'form': form, 'st': designation}
-        return render(request, 'exam_master/exammaster.html', context)
+        return render(request, 'administration/exam_master/exammaster.html', context)
 
 
 @csrf_exempt
