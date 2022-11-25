@@ -15,7 +15,7 @@ def vexam(request):
     }
     return render(request, 'User_UI/viewallexam.html',context)
 
-def allcourse(request):
+def vcourse(request):
     return render(request, 'User_UI/allcourse.html')
 
 def about(request):
