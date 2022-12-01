@@ -61,4 +61,8 @@ urlpatterns = [
     path('deleteem/', views.delete_data_exmaster, name='deleteem'),
     path('editst/', views.edit_data_exmaster, name='editst'),
 
+    #videoclass
+
+    path('video/', views.addvideo,name="vdo"),
+    path('deletevdo/', views.delete_data_video, name='deletevdo'),
 ]

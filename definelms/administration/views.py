@@ -412,3 +412,36 @@ def edit_data_exmaster(request):
         examo = exam_master.objects.get(pk=id)
         exam_data = {'id':examo.id, 'topic_name':examo.topic_name, 'description':examo.description, 'subject':examo.subject, 'user':examo.user}
         return JsonResponse(exam_data)
+
+
+# video class
+
+
+def addvideo(request):
+    if 'username' not in request.session:
+        return redirect('login')
+    else:
+        if request.method == 'POST':
+            
+            form = videoform(request.POST, request.FILES)
+            if form.is_valid():
+                form.save()
+                designation = video_class.objects.all()
+                context = {'form': form, 'st': designation}
+                return render(request, 'administration/videoclass/videoclass.html',context)
+        else:
+            form = videoform()
+        designation=video_class.objects.all()
+        context = {'form': form, 'st': designation}
+        return render(request, 'administration/videoclass/videoclass.html', context)
+
+
+@csrf_exempt
+def delete_data_video(request):
+    if request.method == 'POST':
+        id = request.POST.get('sid')
+        d = video_class.objects.get(pk=id)
+        d.delete()
+        return JsonResponse({'status':1})
+    else:
+        return JsonResponse({'status':0})

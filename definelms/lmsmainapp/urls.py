@@ -48,6 +48,9 @@ urlpatterns = [
     
     path('mcq/', api_views.mcqView.as_view(), name="subtopic"),
     path('mcq/<id>', api_views.GetQuestions.as_view(), name="subtopic"),
+
+    path('videoclass/', api_views.VideoClassView.as_view(), name="videoclass"),
+    path('videoclass/<id>', api_views.VideoClassView.as_view(), name="videoclass_put_dlt"),
     
     #path('home/', views.home_page,name="home"),
 

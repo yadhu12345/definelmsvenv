@@ -251,6 +251,7 @@ class video_class(models.Model):
     is_paid          = models.BooleanField(default=False)
     is_active        = models.BooleanField(default=False)
     videolink        = models.CharField(max_length=500,default="")
+    user             = models.ForeignKey(login,on_delete=models.CASCADE)
     
     class Meta:
         db_table = 'video_class'

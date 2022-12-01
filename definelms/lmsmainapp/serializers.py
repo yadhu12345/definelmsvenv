@@ -99,3 +99,8 @@ class examdetailsSerializer(serializers.ModelSerializer):
         model = exam_question_allocation
         fields = ['id','question','question1']
         depth  = 1
+
+class VideoclassSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=video_class
+        fields = '__all__'
