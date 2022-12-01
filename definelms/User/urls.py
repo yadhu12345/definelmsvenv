@@ -4,7 +4,10 @@ from . import views
 urlpatterns = [
 path('', views.home,name="index"),
 path('vxam/', views.vexam,name="vexam"),
-path('vcourse/', views.vcourse,name="vcourse"),
+path('vcourse/<int:id>', views.vcourse,name="vcourse"),
+path('tutorial/', views.tutorial,name="tutorial"),
 path('about/', views.about,name="about"),
 path('contact/', views.contact,name="contact"),
+path('404/', views.error,name="404"),
+path('loginu/', views.login,name="loginu"),
 ]
