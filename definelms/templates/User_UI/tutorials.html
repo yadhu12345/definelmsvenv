@@ -75,18 +75,20 @@
          
     <div class="container1">
         <div class="main-video-container">
-            <iframe width="1060" height="550" src="https://www.youtube.com/embed/tgbNymZ7vqY" loop controls class="main-video" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;  encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="1060" name="iframe_a" height="550" src="{% static 'userui/gif/animation.gif' %}" loop controls class="main-video" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;  encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>    
         <div class="video-list-container">
             {% for vs in vdc %}
+            <a href="{{vs.videolink}}" target="iframe_a">
                 <div class="list">
                     <img src="{{vs.image.url}}" class="list-video">
                     <h3 class="list-title">{{vs.class_name}}</h3>
                 </div>
+            </a>
             {% endfor %}
         </div>
     </div>
-     
+    
       <!-- custom js file link  -->
       
       
@@ -131,9 +133,6 @@
 		</section>
 	</div>
     </div>
-
-    
-
 
     <!-- Footer Start -->
     {% include 'User_UI/base/footer.html' %}

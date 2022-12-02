@@ -255,3 +255,12 @@ class video_class(models.Model):
     
     class Meta:
         db_table = 'video_class'
+
+
+class doubt_clear(models.Model):
+    id               = models.AutoField(primary_key=True)
+    video            = models.ForeignKey(video_class,on_delete=models.CASCADE)
+    user             = models.ForeignKey(login,on_delete=models.CASCADE)
+    comment          = models.CharField(max_length=5000,default="")
+    class Meta:
+        db_table = 'doubt_clear'

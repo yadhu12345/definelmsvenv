@@ -581,6 +581,44 @@ class VideoClassView(APIView):
             return Response(serializer.errors)
 
 
+#Doubt clear api
+
+
+class DoubtClearView(APIView):
+    def get(self,request,id=None):
+        if id is not None:
+            subjects = doubt_clear.objects.get(id=id)
+            serializer = DoubtClearSerializer(subjects)
+            return Response(serializer.data) 
+        subjects = doubt_clear.objects.all()       
+        serializer = DoubtClearSerializer(subjects,many=True)
+        return Response(serializer.data)
+
+
+    def post(self,req):
+        serializer = DoubtClearSerializer(data=req.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors)  
+
+
+    def delete(self,req,id):
+        doubt_clear.objects.get(id=id).delete()
+        return Response({"msg":1}) 
+
+
+    def put(self,req,id):
+        subjects = doubt_clear.objects.filter(id=id).first()
+        serializer = DoubtClearSerializer(subjects,data=req.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors)
+
+
 #@login_required(login_url='login')
 #def home_page(request):
     

@@ -64,6 +64,10 @@ urlpatterns = [
     path('videoclass/<id>', api_views.VideoClassView.as_view(), name="videoclass_put_dlt"),
     
 
+    path('doubtclear/', api_views.DoubtClearView.as_view(), name="doubtclear"),
+    path('doubtclear/<id>', api_views.DoubtClearView.as_view(), name="doubtclear_put_dlt"),
+
+    
     #path('home/', views.home_page,name="home"),
 
 

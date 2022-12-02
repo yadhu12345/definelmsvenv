@@ -104,3 +104,8 @@ class VideoclassSerializer(serializers.ModelSerializer):
     class Meta:
         model=video_class
         fields = '__all__'
+
+class DoubtClearSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=doubt_clear
+        fields = '__all__'
