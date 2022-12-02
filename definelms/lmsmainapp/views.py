@@ -581,22 +581,22 @@ class VideoClassView(APIView):
             return Response(serializer.errors)
 
 
-#Doubt clear api
+#Comment api
 
 
-class DoubtClearView(APIView):
+class CommentView(APIView):
     def get(self,request,id=None):
         if id is not None:
-            subjects = doubt_clear.objects.get(id=id)
-            serializer = DoubtClearSerializer(subjects)
+            subjects = comment.objects.get(id=id)
+            serializer = CommentSerializer(subjects)
             return Response(serializer.data) 
-        subjects = doubt_clear.objects.all()       
-        serializer = DoubtClearSerializer(subjects,many=True)
+        subjects = comment.objects.all()       
+        serializer = CommentSerializer(subjects,many=True)
         return Response(serializer.data)
 
 
     def post(self,req):
-        serializer = DoubtClearSerializer(data=req.data)
+        serializer = CommentSerializer(data=req.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
@@ -605,13 +605,13 @@ class DoubtClearView(APIView):
 
 
     def delete(self,req,id):
-        doubt_clear.objects.get(id=id).delete()
+        comment.objects.get(id=id).delete()
         return Response({"msg":1}) 
 
 
     def put(self,req,id):
-        subjects = doubt_clear.objects.filter(id=id).first()
-        serializer = DoubtClearSerializer(subjects,data=req.data)
+        subjects = comment.objects.filter(id=id).first()
+        serializer = CommentSerializer(subjects,data=req.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
