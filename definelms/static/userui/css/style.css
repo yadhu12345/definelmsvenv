@@ -546,6 +546,7 @@ a {
     width: 1090px;
     border-bottom: 5px solid #06BBCC;
     box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+    border-radius: 5px;
 }
 #tabs::before {
     content: "";
@@ -559,6 +560,7 @@ a {
     height: 60px;
     background: #ffffff;
     border-bottom: 5px solid #06BBCC;
+    border-radius: 5px;
 }
 #tabs::after {
     content: "";
@@ -569,6 +571,7 @@ a {
     width: 102px;
     background: #06BBCC;
     transition: transform 400ms;
+    border-radius: 5px;
 }
 #tabs label {
     position: relative;
@@ -681,6 +684,7 @@ a {
    flex-wrap: wrap;
    align-items: flex-start;
    gap:20px;
+   border-radius: .5rem;
 }
 
 .container1 .main-video-container{
@@ -689,6 +693,7 @@ a {
    box-shadow: 0 5px 15px #080808(0,0,0,.1);
    background-color: #fff;
    padding:15px;
+   border-radius: .5rem;
 }
 
 .container1 .main-video-container .main-video{

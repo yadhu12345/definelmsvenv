@@ -9,6 +9,8 @@ from lmsmainapp.forms import *
 
 
 #login
+
+
 def admin_login(request):
 	msg=''
 	if request.method=='POST':
@@ -25,9 +27,11 @@ def admin_login(request):
 	form=AdminLoginForm
 	return render(request, 'administration/login.html',{'forms':form,'msg':msg})
  
+
 def admin_logout(request):
     logout(request)
     return redirect('login')
+
 
 def home_page(request):
     if 'username' not in request.session:
@@ -47,6 +51,7 @@ def home_page(request):
         }
         return render(request, 'administration/home.html', context)
         
+
 def home(request):
     if 'username' not in request.session:
         return redirect('login')
@@ -78,6 +83,7 @@ def save_data(request):
         else:
             return JsonResponse({'status':'Not Saved'})    
 
+
 @csrf_exempt
 def delete_data(request):
     if request.method == 'POST':
@@ -100,6 +106,8 @@ def edit_data(request):
 
 
 #add course
+
+
 def addcourse(request):
     if 'username' not in request.session:
         return redirect('login')
@@ -130,8 +138,8 @@ def delete_data_course(request):
         return JsonResponse({'status':0})    
 
 
-
 #add subject
+
 
 def addsubject(request):
     if 'username' not in request.session:
@@ -151,6 +159,7 @@ def addsubject(request):
         us = login.objects.all
         context = {'form': form, 'st': designation,'uu':us}
         return render(request, 'administration/subject/subject.html', context)
+
 
 @csrf_exempt
 def delete_data_subject(request):
@@ -260,8 +269,8 @@ def edit_data_topic(request):
         return JsonResponse(exam_data)
 
 
-
 #add subtopic
+
 
 def addsubtopic(request):
     if 'username' not in request.session:
@@ -290,7 +299,6 @@ def delete_data_subtopic(request):
         return JsonResponse({'status':1})
     else:
         return JsonResponse({'status':0})    
-
 
 @csrf_exempt
 def edit_data_subtopic(request):
@@ -330,7 +338,9 @@ def delete_data_question(request):
     else:
         return JsonResponse({'status':0})
 
+
 #add options
+
 
 def addoptions(request):
     if 'username' not in request.session:
@@ -349,9 +359,6 @@ def addoptions(request):
         option = question_bank_options.objects.all()
         context = {'form': form, 'opn': option}
         return render(request, 'administration/qsoptions/topic.html',context)
-
-
-
 
 
 @csrf_exempt
@@ -374,7 +381,9 @@ def edit_data_addoptions(request):
         exam_data = {'id':examo.id, 'exam_name':examo.exam_name,'description':examo.description,'remarks':examo.remarks}
         return JsonResponse(exam_data)
 
+
 #add exam master
+
 
 def addexmaster(request):
     if 'username' not in request.session:

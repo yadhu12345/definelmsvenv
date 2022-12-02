@@ -26,8 +26,10 @@ class WebLogin(APIView):
         serializer = loginSerializer(login_data, many=False)
         return Response(serializer.data)
 
+
 class loginView(APIView):
  
+
     def get(self,request,username=None):
         if username is not None:
             user = login.objects.filter(username = username).first()
@@ -66,7 +68,9 @@ class loginView(APIView):
 
 # SERIALIZER FOR REGISTRATION OPERATIONS:
 
+
 class registrationView(APIView):
+
 
     def get(self,request,username=None):
         if username is not None:
@@ -110,6 +114,7 @@ class registrationView(APIView):
 
 class examView(APIView):
 
+
     def get(self,request,id=None):
         if id is not None:
             exam1      = exam.objects.get(id=id)
@@ -147,6 +152,7 @@ class examView(APIView):
 
 #course
 
+
 def addcourse(request):
         """Process images uploaded by users"""
         if request.method == 'POST':
@@ -158,7 +164,9 @@ def addcourse(request):
             form = courseForm()
         return render(request, 'course/course1.html', {'form': form})
 
+
 class courseView(APIView):
+
 
     def get(self,request,id=None):
         if id is not None:
@@ -196,6 +204,8 @@ class courseView(APIView):
 
 
 #subject adding
+
+
 def addsubject(request):
         """Process images uploaded by users"""
         if request.method == 'POST':
@@ -211,6 +221,7 @@ def addsubject(request):
 
 
 #SERIALIZERS FOR SUBJECT OPERATION
+
 
 class subjectView(APIView):
 
@@ -249,14 +260,13 @@ class subjectView(APIView):
             return Response(serializer.errors)  
 
 
-#SERIALIZERS FOR TOPIC OPERATION
-
 # get particular topic assosiated with particular subjects
 class ParticularTopic(APIView):
     def get(self, request,id):
         topics = topic.objects.filter(subject = id)
         serializer = topicSerializer(topics, many=True)
         return Response(serializer.data)
+
 
 class topicView(APIView):
 
@@ -296,6 +306,7 @@ class topicView(APIView):
 
 #subtopic
 
+
 class subtopicView(APIView):
 
     def get(self,request,id=None):
@@ -331,7 +342,9 @@ class subtopicView(APIView):
         else:
             return Response(serializer.errors)
 
+
 #SERIALIZER FOR QUESTION BANK
+
 
 class question_bankView(APIView):
 
@@ -381,6 +394,7 @@ class questionView(APIView):  #TO GET QUESTION BY CERTAIN TOPIC ID
 
 #FOR EXAM MASTER
 
+
 class exammasterView(APIView):
 
     def get(self,request,id=None):
@@ -413,7 +427,9 @@ class exammasterView(APIView):
         exam_master.objects.get(id=id).delete()
         return Response("successfully deleted")
 
+
 # API to list the available tests...
+
 
 class masterView(APIView):
 
@@ -426,6 +442,7 @@ class masterView(APIView):
         master1      = exam_master.objects.filter(exam_criteria__subject=sub_id,exam_criteria__topic=tpc_id , exam_start_date__lte=date, exam_end_date__gte=date)
         serializer   = exam_masterSerializer(master1,many=True)
         return Response(serializer.data)  
+
 
 class examQuestionAllocationView(APIView):
 
@@ -526,8 +543,8 @@ class GetQuestions(APIView):
         return Response(serializer.data)
 
 
-
 #video class api
+
 
 class VideoClassView(APIView):
     def get(self,request,id=None):
